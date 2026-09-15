@@ -1,7 +1,7 @@
 # FIXED
 
 ti/driverlib/m0p/dl_interrupt.o: ../ti/driverlib/m0p/dl_interrupt.c \
- C:/Users/popli/workspace_ccstheia/empty_driverlib_src/ti/driverlib/m0p/dl_interrupt.h \
+ C:/Users/popli/Documents/GitHub/EdgeAI-Multi-Sensor-Smoke-Detector/smoke_detector/ti/driverlib/m0p/dl_interrupt.h \
  C:/ti/mspm0_sdk_2_11_00_07/source/ti/devices/msp/msp.h \
  C:/ti/mspm0_sdk_2_11_00_07/source/ti/devices/DeviceFamily.h \
  C:/ti/mspm0_sdk_2_11_00_07/source/ti/devices/msp/m0p/mspm0g518x.h \
@@ -36,7 +36,7 @@ ti/driverlib/m0p/dl_interrupt.o: ../ti/driverlib/m0p/dl_interrupt.c \
  C:/ti/mspm0_sdk_2_11_00_07/source/ti/devices/msp/peripherals/m0p/hw_sysctl.h \
  C:/ti/mspm0_sdk_2_11_00_07/source/ti/devices/msp/peripherals/m0p/sysctl/hw_sysctl_mspm0g518x.h \
  C:/ti/mspm0_sdk_2_11_00_07/source/ti/devices/msp/peripherals/m0p/hw_factoryregion.h
-C:/Users/popli/workspace_ccstheia/empty_driverlib_src/ti/driverlib/m0p/dl_interrupt.h:
+C:/Users/popli/Documents/GitHub/EdgeAI-Multi-Sensor-Smoke-Detector/smoke_detector/ti/driverlib/m0p/dl_interrupt.h:
 C:/ti/mspm0_sdk_2_11_00_07/source/ti/devices/msp/msp.h:
 C:/ti/mspm0_sdk_2_11_00_07/source/ti/devices/DeviceFamily.h:
 C:/ti/mspm0_sdk_2_11_00_07/source/ti/devices/msp/m0p/mspm0g518x.h:

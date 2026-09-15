@@ -2,7 +2,7 @@
 
 ti/driverlib/dl_flashctl.o: ../ti/driverlib/dl_flashctl.c \
  C:/ti/mspm0_sdk_2_11_00_07/source/ti/devices/DeviceFamily.h \
- C:/Users/popli/workspace_ccstheia/empty_driverlib_src/ti/driverlib/dl_flashctl.h \
+ C:/Users/popli/Documents/GitHub/EdgeAI-Multi-Sensor-Smoke-Detector/smoke_detector/ti/driverlib/dl_flashctl.h \
  C:/ti/mspm0_sdk_2_11_00_07/source/ti/devices/msp/msp.h \
  C:/ti/mspm0_sdk_2_11_00_07/source/ti/devices/msp/m0p/mspm0g518x.h \
  C:/ti/mspm0_sdk_2_11_00_07/source/third_party/CMSIS/Core/Include/core_cm0plus.h \
@@ -36,13 +36,13 @@ ti/driverlib/dl_flashctl.o: ../ti/driverlib/dl_flashctl.c \
  C:/ti/mspm0_sdk_2_11_00_07/source/ti/devices/msp/peripherals/m0p/hw_sysctl.h \
  C:/ti/mspm0_sdk_2_11_00_07/source/ti/devices/msp/peripherals/m0p/sysctl/hw_sysctl_mspm0g518x.h \
  C:/ti/mspm0_sdk_2_11_00_07/source/ti/devices/msp/peripherals/m0p/hw_factoryregion.h \
- C:/Users/popli/workspace_ccstheia/empty_driverlib_src/ti/driverlib/dl_common.h \
- C:/Users/popli/workspace_ccstheia/empty_driverlib_src/ti/driverlib/m0p/dl_factoryregion.h \
- C:/Users/popli/workspace_ccstheia/empty_driverlib_src/ti/driverlib/m0p/dl_core.h \
- C:/Users/popli/workspace_ccstheia/empty_driverlib_src/ti/driverlib/m0p/dl_sysctl.h \
- C:/Users/popli/workspace_ccstheia/empty_driverlib_src/ti/driverlib/m0p/sysctl/dl_sysctl_mspm0g518x.h
+ C:/Users/popli/Documents/GitHub/EdgeAI-Multi-Sensor-Smoke-Detector/smoke_detector/ti/driverlib/dl_common.h \
+ C:/Users/popli/Documents/GitHub/EdgeAI-Multi-Sensor-Smoke-Detector/smoke_detector/ti/driverlib/m0p/dl_factoryregion.h \
+ C:/Users/popli/Documents/GitHub/EdgeAI-Multi-Sensor-Smoke-Detector/smoke_detector/ti/driverlib/m0p/dl_core.h \
+ C:/Users/popli/Documents/GitHub/EdgeAI-Multi-Sensor-Smoke-Detector/smoke_detector/ti/driverlib/m0p/dl_sysctl.h \
+ C:/Users/popli/Documents/GitHub/EdgeAI-Multi-Sensor-Smoke-Detector/smoke_detector/ti/driverlib/m0p/sysctl/dl_sysctl_mspm0g518x.h
 C:/ti/mspm0_sdk_2_11_00_07/source/ti/devices/DeviceFamily.h:
-C:/Users/popli/workspace_ccstheia/empty_driverlib_src/ti/driverlib/dl_flashctl.h:
+C:/Users/popli/Documents/GitHub/EdgeAI-Multi-Sensor-Smoke-Detector/smoke_detector/ti/driverlib/dl_flashctl.h:
 C:/ti/mspm0_sdk_2_11_00_07/source/ti/devices/msp/msp.h:
 C:/ti/mspm0_sdk_2_11_00_07/source/ti/devices/msp/m0p/mspm0g518x.h:
 C:/ti/mspm0_sdk_2_11_00_07/source/third_party/CMSIS/Core/Include/core_cm0plus.h:
@@ -76,8 +76,8 @@ C:/ti/mspm0_sdk_2_11_00_07/source/ti/devices/msp/peripherals/m0p/hw_debugss.h:
 C:/ti/mspm0_sdk_2_11_00_07/source/ti/devices/msp/peripherals/m0p/hw_sysctl.h:
 C:/ti/mspm0_sdk_2_11_00_07/source/ti/devices/msp/peripherals/m0p/sysctl/hw_sysctl_mspm0g518x.h:
 C:/ti/mspm0_sdk_2_11_00_07/source/ti/devices/msp/peripherals/m0p/hw_factoryregion.h:
-C:/Users/popli/workspace_ccstheia/empty_driverlib_src/ti/driverlib/dl_common.h:
-C:/Users/popli/workspace_ccstheia/empty_driverlib_src/ti/driverlib/m0p/dl_factoryregion.h:
-C:/Users/popli/workspace_ccstheia/empty_driverlib_src/ti/driverlib/m0p/dl_core.h:
-C:/Users/popli/workspace_ccstheia/empty_driverlib_src/ti/driverlib/m0p/dl_sysctl.h:
-C:/Users/popli/workspace_ccstheia/empty_driverlib_src/ti/driverlib/m0p/sysctl/dl_sysctl_mspm0g518x.h:
+C:/Users/popli/Documents/GitHub/EdgeAI-Multi-Sensor-Smoke-Detector/smoke_detector/ti/driverlib/dl_common.h:
+C:/Users/popli/Documents/GitHub/EdgeAI-Multi-Sensor-Smoke-Detector/smoke_detector/ti/driverlib/m0p/dl_factoryregion.h:
+C:/Users/popli/Documents/GitHub/EdgeAI-Multi-Sensor-Smoke-Detector/smoke_detector/ti/driverlib/m0p/dl_core.h:
+C:/Users/popli/Documents/GitHub/EdgeAI-Multi-Sensor-Smoke-Detector/smoke_detector/ti/driverlib/m0p/dl_sysctl.h:
+C:/Users/popli/Documents/GitHub/EdgeAI-Multi-Sensor-Smoke-Detector/smoke_detector/ti/driverlib/m0p/sysctl/dl_sysctl_mspm0g518x.h:

@@ -180,20 +180,20 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-empty_driverlib_src.out 
+smoke_detector.out 
 
 EXE_OUTPUTS__QUOTED += \
-"empty_driverlib_src.out" 
+"smoke_detector.out" 
 
 
 # All Target
 all: $(OBJS) $(GEN_CMDS)
-	@$(MAKE) --no-print-directory -Onone "empty_driverlib_src.out"
+	@$(MAKE) --no-print-directory -Onone "smoke_detector.out"
 
 # Tool invocations
-empty_driverlib_src.out: $(OBJS) $(GEN_CMDS)
+smoke_detector.out: $(OBJS) $(GEN_CMDS)
 	@echo 'Arm Linker: "$@"'
-	"C:/ti/ccs2100/ccs/tools/compiler/ti-cgt-armllvm_5.1.1.LTS/bin/tiarmclang.exe" @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O2 -g -Wall -Wl,-m"empty_driverlib_src.map" -Wl,-i"C:/ti/mspm0_sdk_2_11_00_07/source" -Wl,-i"C:/Users/popli/workspace_ccstheia/empty_driverlib_src" -Wl,-i"C:/Users/popli/workspace_ccstheia/empty_driverlib_src/Debug/syscfg" -Wl,-i"C:/ti/ccs2100/ccs/tools/compiler/ti-cgt-armllvm_5.1.1.LTS/lib" -Wl,--diag_wrap=off -Wl,--display_error_number -Wl,--warn_sections -Wl,--xml_link_info="empty_driverlib_src_linkInfo.xml" -Wl,--rom_model -o "empty_driverlib_src.out" $(ORDERED_OBJS)
+	"C:/ti/ccs2100/ccs/tools/compiler/ti-cgt-armllvm_5.1.1.LTS/bin/tiarmclang.exe" @"device.opt"  -march=thumbv6m -mcpu=cortex-m0plus -mfloat-abi=soft -mlittle-endian -mthumb -O2 -g -Wall -Wl,-m"smoke_detector.map" -Wl,-i"C:/ti/mspm0_sdk_2_11_00_07/source" -Wl,-i"C:/Users/popli/Documents/GitHub/EdgeAI-Multi-Sensor-Smoke-Detector/smoke_detector" -Wl,-i"C:/Users/popli/Documents/GitHub/EdgeAI-Multi-Sensor-Smoke-Detector/smoke_detector/Debug/syscfg" -Wl,-i"C:/ti/ccs2100/ccs/tools/compiler/ti-cgt-armllvm_5.1.1.LTS/lib" -Wl,--diag_wrap=off -Wl,--display_error_number -Wl,--warn_sections -Wl,--xml_link_info="smoke_detector_linkInfo.xml" -Wl,--rom_model -o "smoke_detector.out" $(ORDERED_OBJS)
 	@echo ' '
 
 # Other Targets
