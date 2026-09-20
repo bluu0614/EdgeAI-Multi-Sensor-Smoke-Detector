@@ -18,7 +18,7 @@ class SensorReading(BaseModel):
     temperature: float
     humidity: float
     battery: float
-    alarm: int
+    alarm: bool
     confidence: float
 
 #for creating .db file if it does not exist as DATABASE name
