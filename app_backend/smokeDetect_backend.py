@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import RedirectResponse
 from pydantic import BaseModel
 import sqlite3
 
@@ -8,6 +10,11 @@ import sqlite3
 #create way of communication between apps
 app = FastAPI()
 
+@app.get("/")
+def home():
+    return RedirectResponse(url="/frontend/index.html")
+
+app.mount("/frontend", StaticFiles(directory="frontend"), name="frontend")
 
 #writes to this
 DATABASE = "smoke_detector.db"
@@ -32,6 +39,7 @@ def init_database():
     #timestamp autorecords when server/device received info
     #rest are for sensors
     #REAL is for decimal, INTEGER for int or bool, bool DNE in SQL, TEXT for string, BLOB for binary data i.e images, files
+    #this one makes for all readings
     conn.execute("""
         CREATE TABLE IF NOT EXISTS readings (    
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -44,6 +52,20 @@ def init_database():
             confidence REAL
         )
     """)
+    #this one makes for just latest reading
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS latest (    
+            id INTEGER PRIMARY KEY,
+            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+            smoke REAL,
+            temperature REAL,
+            humidity REAL,
+            battery REAL,
+            alarm INTEGER,
+            confidence REAL
+        )
+    """)
+
     # saves /w commit and closes w/ close
     conn.commit()
     conn.close()
@@ -68,6 +90,25 @@ def receive_reading(reading: SensorReading):
         reading.alarm,
         reading.confidence
     ))
+    
+    #removes old latest reading
+    conn.execute("""
+        DELETE FROM latest
+    """)
+
+    #puts in new reading into latest
+    conn.execute("""
+        INSERT INTO latest
+        (smoke, temperature, humidity, battery, alarm, confidence)
+        VALUES (?, ?, ?, ?, ?, ?)
+    """, (
+        reading.smoke,
+        reading.temperature,
+        reading.humidity,
+        reading.battery,
+        reading.alarm,
+        reading.confidence
+    ))
 
     #saves and closes
     conn.commit()
@@ -75,6 +116,51 @@ def receive_reading(reading: SensorReading):
 
     #sends back a response that tells requestee that data was received and processed
     return {"status": "received"}
+
+#for sending data to other devices/apps
+@app.get("/api/readings")
+def get_readings():
+
+    #connects/opend .db file
+    conn = sqlite3.connect(DATABASE)
+
+    #gives access to rows/datapackets by name rather thatn list of values
+    conn.row_factory = sqlite3.Row
+
+    #fetching reading of each row by order of descending timestamp
+    rows = conn.execute("""
+        SELECT *
+        FROM readings
+        ORDER BY timestamp DESC
+    """).fetchall()
+
+    #closes .db
+    conn.close()
+
+    #returns data for each row cleanly
+    return [dict(row) for row in rows]
+
+#is only the latest reading
+@app.get("/api/latest")
+def get_latest():
+
+    #connect and split into readable sections
+    conn = sqlite3.connect(DATABASE)
+    conn.row_factory = sqlite3.Row
+
+    #fetching only one/latest reading
+    row = conn.execute("""
+        SELECT *
+        FROM latest
+        WHERE id = 1
+    """).fetchone()
+
+    conn.close()
+
+    if row is None:
+        return {"message": "No readings available"}
+
+    return dict(row)
 
 #runs func of inserting new data
 init_database()
