@@ -1,8 +1,8 @@
-function getReadings() {
-    console.log("Getting readings...");
+function getLatestReading() {
+    console.log("Getting latest readings...");
 
     //uses the HTTP GET from the readings, GET = fetch() 
-    fetch("/api/readings")
+    fetch("/api/latest")
         //once it gets data, it converts the .json respnse to something it can read
         .then(response => response.json())
         //then once it converts data, do the rest of this
@@ -11,24 +11,22 @@ function getReadings() {
             console.log("Received:", data);
 
             //if nothing there, print that nothing was there
-            if (data.length === 0) {
-                console.log("No readings available.");
+            if (data.message) {
+                console.log(data.message);
                 return;
             }
 
-            //gets newest reading, so by timestamp
-            const latest = data[0];
 
             //puts the data received into the html
-            document.getElementById("smoke").textContent = latest.smoke;
-            document.getElementById("temperature").textContent = latest.temperature + " °C";
-            document.getElementById("humidity").textContent = latest.humidity + " %";
-            document.getElementById("battery").textContent = latest.battery + " %";
-            document.getElementById("alarm").textContent = latest.alarm;
-            document.getElementById("confidence").textContent = latest.confidence;
+            document.getElementById("smoke").textContent = data.smoke;
+            document.getElementById("temperature").textContent = data.temperature + " °C";
+            document.getElementById("humidity").textContent = data.humidity + " %";
+            document.getElementById("battery").textContent = data.battery + " %";
+            document.getElementById("alarm").textContent = data.alarm;
+            document.getElementById("confidence").textContent = data.confidence;
         });
 }
 
-getReadings();
+getLatestReading();
 
-setInterval(getReadings, 10000);
+setInterval(getLatestReading, 10000);
