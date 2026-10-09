@@ -1,0 +1,9 @@
+header, footer {
+  font-family: "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  background: #570e0e;
+  color: #ffffff;
+}
+body {
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
