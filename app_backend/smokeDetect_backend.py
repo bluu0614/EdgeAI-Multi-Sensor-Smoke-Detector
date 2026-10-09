@@ -24,6 +24,7 @@ class SensorReading(BaseModel):
     smoke: float
     temperature: float
     humidity: float
+    co: float
     battery: float
     alarm: bool
     confidence: float
@@ -40,6 +41,8 @@ def init_database():
     #rest are for sensors
     #REAL is for decimal, INTEGER for int or bool, bool DNE in SQL, TEXT for string, BLOB for binary data i.e images, files
     #this one makes for all readings
+
+    #output last received timestamp, smoke, temp, humidity, CO ppm, battery %, confidence %, and alarm state
     conn.execute("""
         CREATE TABLE IF NOT EXISTS readings (    
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -47,6 +50,7 @@ def init_database():
             smoke REAL,
             temperature REAL,
             humidity REAL,
+            co REAL,
             battery REAL,
             alarm INTEGER,
             confidence REAL
@@ -60,6 +64,7 @@ def init_database():
             smoke REAL,
             temperature REAL,
             humidity REAL,
+            co REAL,
             battery REAL,
             alarm INTEGER,
             confidence REAL
@@ -80,12 +85,13 @@ def receive_reading(reading: SensorReading):
     #inserts readings w/ received data
     conn.execute("""
         INSERT INTO readings
-        (smoke, temperature, humidity, battery, alarm, confidence)
-        VALUES (?, ?, ?, ?, ?, ?)
+        (smoke, temperature, humidity, co, battery, alarm, confidence)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
     """, (
         reading.smoke,
         reading.temperature,
         reading.humidity,
+        reading.co,
         reading.battery,
         reading.alarm,
         reading.confidence
@@ -99,12 +105,13 @@ def receive_reading(reading: SensorReading):
     #puts in new reading into latest
     conn.execute("""
         INSERT INTO latest
-        (smoke, temperature, humidity, battery, alarm, confidence)
-        VALUES (?, ?, ?, ?, ?, ?)
+        (id, smoke, temperature, humidity, co, battery, alarm, confidence)
+        VALUES (1, ?, ?, ?, ?, ?, ?, ?)
     """, (
         reading.smoke,
         reading.temperature,
         reading.humidity,
+        reading.co,
         reading.battery,
         reading.alarm,
         reading.confidence
