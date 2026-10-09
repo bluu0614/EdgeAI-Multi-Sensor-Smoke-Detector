@@ -21,8 +21,9 @@ function getLatestReading() {
             document.getElementById("smoke").textContent = data.smoke;
             document.getElementById("temperature").textContent = data.temperature + " °C";
             document.getElementById("humidity").textContent = data.humidity + " %";
+            document.getElementById("co").textContent = data.co + " ppm";
             document.getElementById("battery").textContent = data.battery + " %";
-            document.getElementById("alarm").textContent = data.alarm;
+            document.getElementById("alarm").textContent = data.alarm === 1 ? "Active": "Inactive";
             document.getElementById("confidence").textContent = data.confidence;
         });
 }
